@@ -1,0 +1,20 @@
+import pandas as pd
+import numpy as np
+
+# Load the dataset
+df = pd.read_csv('rt_reviews.csv',encoding='ISO-8859-1')
+
+# Merge the dataset into one
+reviews = df['Review']
+sentiments = df['Freshness']
+
+# Divide the dataset into train, development, and test sets
+merged_df = pd.DataFrame({'Review': reviews, 'Freshness': sentiments})
+
+# Shuffle the dataset
+merged_df = merged_df.sample(frac=1, random_state=42).reset_index(drop=True)
+
+# Divide the dataset into train, development, and test datasets (80%, 10%, 10%)
+train_df = merged_df[:int(len(merged_df) * 0.8)]
+dev_df = merged_df[int(len(merged_df) * 0.8):int(len(merged_df) * 0.9)]
+test_df = merged_df[int(len(merged_df) * 0.9):]
