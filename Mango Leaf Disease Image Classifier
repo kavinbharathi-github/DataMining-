@@ -179,24 +179,6 @@ model.save('/content/drive/MyDrive/Mango Leaf Desiease Detect/Best_Model.h5')
 
 model.evaluate(validation_generator)
 
-"""In comparison to the original model from the referenced paper, I made the following improvements that resulted in an increase in the test accuracy from 96% to 97.5%:
-
-* Simplification: I simplified the architecture by removing unnecessary filter sizes and only used 3x3 convolutional filters throughout the model. This resulted in a more consistent and easier-to-understand architecture.
-
-* Depth: I increased the depth of the model by adding an additional convolutional layer for the 128-filter block. This allowed the model to learn more complex and hierarchical features, which improved its overall performance.
-
-* Pooling layers: I changed the max-pooling layer sizes to 2x2 in all layers. This provided a more balanced downsampling of the feature maps and enabled the model to retain more spatial information.
-
-* Dropout: I introduced a dropout layer with a rate of 0.5 after the first fully connected layer. This regularized the model and helped prevent overfitting.
-
-* Activation function: I consistently used the ReLU activation function in all convolutional layers, as it is less prone to vanishing gradients and generally results in faster convergence.
-
-* Input size: I adjusted the input size of the model to 260x260x3 to better align with the actual input image size, which likely led to better performance due to a better match between the model input and the data.
-
-
-In summary, the improvements made to the model architecture and training strategy allowed for better feature extraction and representation, leading to an increase in the model's test accuracy from 96% to 97.5%. These changes resulted in a more effective and robust classifier for the mango leaf disease dataset, ultimately enhancing the model's ability to identify and classify different diseases accurately.
-"""
-
 # Extract images and labels from the train_generator
 images = []
 labels = []
